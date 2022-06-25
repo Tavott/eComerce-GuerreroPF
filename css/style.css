@@ -335,7 +335,7 @@ section {
 
 @media (max-width: 450px) {
   section {
-    padding: 13rem; }
+    padding: 8rem; }
   html {
     font-size: 50%; }
   .grid_container {
@@ -353,6 +353,8 @@ section {
     margin-left: -5rem; }
   .contact .row {
     margin: -5rem; }
-  .faq .content {
-    margin-left: -5rem;
-    margin-right: -5rem; } }
+  .faq {
+    padding: 12rem; }
+    .faq .content {
+      margin-left: -5rem;
+      margin-right: -5rem; } }
