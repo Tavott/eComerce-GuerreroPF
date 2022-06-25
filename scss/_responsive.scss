@@ -57,7 +57,7 @@
 
 @media (max-width: 450px) {
     section {
-        padding: 8rem;
+        padding: 13rem;
     }
 
     html {
@@ -87,8 +87,10 @@
         margin: -5rem;
     }
 
-    .faq .content {
-        margin-left: -5rem;
-        margin-right: -5rem;
+    .faq {
+        .content {
+            margin-left: -5rem;
+            margin-right: -5rem;
+        }
     }
 }

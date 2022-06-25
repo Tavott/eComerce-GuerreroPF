@@ -335,7 +335,7 @@ section {
 
 @media (max-width: 450px) {
   section {
-    padding: 8rem; }
+    padding: 13rem; }
   html {
     font-size: 50%; }
   .grid_container {
