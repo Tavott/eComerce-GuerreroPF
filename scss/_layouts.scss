@@ -1,0 +1,420 @@
+:root {
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg: #010103;
+    --border: .2rem solid rgba(255, 255, 255, .3);
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 0.2fr 2.6fr 0.2fr;
+    gap: 2px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "header header header"
+        ". home ."
+        "footer footer footer";
+}
+
+
+.heading {
+    grid-area: header;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+
+#check {
+    display: none;
+}
+
+.header {
+    grid-area: header;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1%;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--bg);
+
+    .checkbtn {
+        font-size: 30px;
+        color: #fff;
+        float: right;
+        line-height: 80px;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+    }
+
+    .navbar {
+        height: 80px;
+        width: 100%;
+
+        .enlace {
+            position: flex;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        ul {
+            float: right;
+            margin-right: 20px;
+
+            li {
+                display: inline-block;
+                line-height: 80px;
+                margin: 0 5px;
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    font-size: 18px;
+                    padding: 7px 13px;
+                    border-radius: 3px;
+                    text-transform: uppercase;
+
+                    &:hover {
+                        background: var(--main-color);
+                        transition: .5s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/* Home */
+// Uso de extend
+%fontsize {
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.home {
+    grid-area: home;
+    min-height: 300vh;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+
+    .contenedor {
+        margin: auto;
+        display: table;
+
+        h1 {
+            position: relative;
+            float: left;
+            background: rgb(18, 17, 17);
+            color: #fff;
+            font-size: 2.5em;
+        }
+
+        h1 span {
+            position: absolute;
+            right: 0;
+            width: 0;
+            background: rgb(0, 0, 0);
+            border-left: 1px solid #000;
+            animation: escribir 3s steps(30);
+        }
+    }
+
+    @keyframes escribir {
+        from {
+            width: 100%
+        }
+
+        to {
+            width: 0
+        }
+    }
+
+    .content {
+        max-width: 100rem;
+
+
+        h3 {
+            margin: 10px;
+            font-size: 4rem;
+            text-transform: uppercase;
+            color: rgb(252, 252, 252);
+        }
+
+        p {
+            @extend %fontsize;
+            font-weight: lighter;
+            line-height: 1.8;
+            color: rgb(222, 209, 209);
+        }
+    }
+}
+
+/* fin Home */
+/* Productos */
+.productos .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+
+    .box {
+        padding: 5;
+        text-align: center;
+        border: var(--border);
+
+        &:hover {
+            border: none;
+        }
+
+        img {
+            height: 10rem;
+            position: relative;
+
+            &:hover {
+                //filter: grayscale();
+                transform: scale(1.2);
+                z-index: 2;
+            }
+        }
+
+        h3 {
+            color: #fff;
+            @extend %fontsize;
+            // font-size: 2rem;
+            // padding: 1rem 0;
+        }
+
+        .price {
+            color: #fff;
+            font-size: 2.5rem;
+            padding: .5rem 0;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.7rem;
+            color: #fff;
+            background: var(--main-color);
+            cursor: pointer;
+
+            &:hover {
+                letter-spacing: .2rem;
+            }
+        }
+
+
+    }
+}
+
+/* fin Productos */
+/* About */
+.about .row {
+    display: flex;
+    align-items: center;
+    background: var(--black);
+    flex-wrap: wrap;
+
+    .image {
+        flex: 1 1 45rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content {
+
+        h3 {
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.6rem;
+            color: #ccc;
+            padding: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .btn {
+            color: var(--main-color);
+
+            &:hover {
+                color: #fff
+            }
+        }
+    }
+}
+
+/* Fin About */
+
+/* Contactos*/
+.contact {
+    p {
+        color: #ccc;
+    }
+
+    .row {
+        display: flex;
+        background: var(--black);
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+
+        .map {
+            flex: 1 1 45rem;
+            width: 100%;
+            object-fit: cover;
+        }
+
+
+        form {
+            flex: 1 1 45rem;
+            padding: 5rem 2rem;
+            text-align: center;
+
+            h3 {
+                text-transform: uppercase;
+                font-size: 3.5rem;
+                color: #fff;
+                cursor: pointer;
+
+                &:hover {
+                    letter-spacing: .2rem;
+                }
+            }
+
+            .btn {
+                margin-top: 1rem;
+                display: inline-block;
+                padding: .6rem 3rem;
+                font-size: 1.7rem;
+                color: #fff;
+                background: var(--main-color);
+                cursor: pointer;
+
+                &:hover {
+                    letter-spacing: .2rem;
+                }
+            }
+
+        }
+    }
+}
+
+
+
+/* fin Contactos */
+/* FAQ */
+.faq {
+    p {
+        color: #fff;
+        font-size: 2rem;
+
+    }
+
+    .content {
+        background: var(--black);
+
+        p {
+            font-size: 1.6rem;
+            color: #ccc;
+            padding: 1rem 0;
+            line-height: 1.8;
+        }
+    }
+
+    .banner img {
+        width: 100%;
+    }
+}
+
+/* Fin FAQ */
+/* Footer */
+
+$estilos: (
+    gris: #3a4049,
+    blanco: #ffffff
+);
+
+@mixin fondo($color) {
+    @if map-has-key($estilos, $color) {
+        background-color: map-get($estilos, $color);
+    }
+}
+
+
+.footer {
+    grid-area: footer;
+    background: var(--black);
+    text-align: center;
+
+    .share {
+        padding: 1rem 0;
+        text-align: center;
+
+        a {
+            @include fondo(gris);
+            color: white;
+            text-decoration: none;
+            height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            border: var(--border);
+            margin: .3rem;
+            border-radius: 50%;
+
+            &:hover {
+                background-color: var(--main-color);
+            }
+        }
+
+    }
+
+    ul {
+        /* text-decoration: none; */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 2rem 0;
+        gap: 1rem;
+
+        li {
+            @include fondo(blanco);
+            padding: .7rem 2rem;
+            list-style: none;
+            border: var(--border);
+            font-size: 2rem;
+
+            &:hover {
+                background: var(--main-color);
+            }
+
+            a {
+                color: rgb(0, 0, 0);
+            }
+        }
+    }
+
+    .credit {
+        font-size: 2rem;
+        color: #fff;
+        font-weight: lighter;
+        padding: 1.5rem;
+    }
+}
